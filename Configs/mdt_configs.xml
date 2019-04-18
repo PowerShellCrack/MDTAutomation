@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<mdtConfigs>
+    <server>
+        <host>mdt.domain</host>
+        <share>deploymentshare$</share>
+        <PhysicalPath>D:\DeploymentShare</PhysicalPath>
+		<remoteMDTProvider>False</remoteMDTProvider>
+		<!-- Using MDT admin credentials and on the same machine the script is running, run get-credential | Export-Clixml c:\MDTcreds.xml. Copy that file to script folder -->
+		<remoteAuthFile>Configs\MDTCreds.xml</remoteAuthFile>
+    </server>
+
+    <server>
+        <host>vdi.domain</host>
+        <share>deploymentshare$</share>
+        <PhysicalPath>D:\DeploymentShareVDI</PhysicalPath>
+		<remoteMDTProvider>False</remoteMDTProvider>
+		<!-- Using MDT admin credentials and on the same machine the script is running, run get-credential | Export-Clixml c:\MDTcreds.xml. Copy that file to script folder -->
+		<remoteAuthFile>Configs\MDTCreds.xml</remoteAuthFile>
+    </server>
+
+    <softwareListCliXml>
+		<!-- Run Get-3rdPartySoftware.ps1 to generated software xml. change the rootpath to the software and the listpath to the xml-->
+		<software rootPath="\\FileServer\share\software\3rd Party Software & Updates" listPath="\\FileServer\share\software\3rd Party Software & Updates\Software\softwarelist.xml" />
+    </softwareListCliXml>
+
+    <definitionUpdates>
+		<windowsdefender>\\FileServer\share\software\3rd Party Software & Updates\Definitions\Defender</windowsdefender>
+		<mcafeeDat>\\FileServer\share\software\3rd Party Software & Updates\Definitions\McAfee</mcafeeDat>
+    </definitionUpdates>    
+</mdtConfigs>
