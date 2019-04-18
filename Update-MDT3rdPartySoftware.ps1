@@ -172,7 +172,7 @@ Function Write-LogEntry{
 ## Instead fo using $PSScriptRoot variable, use the custom InvocationInfo for ISE runs
 If (Test-Path -LiteralPath 'variable:HostInvocation') { $InvocationInfo = $HostInvocation } Else { $InvocationInfo = $MyInvocation }
 #Since running script within Powershell ISE doesn't have a $scriptpath...hardcode it
-If(Test-IsISE){$scriptPath = "\\filer.s3i.org\s3isoftware\software\Scripts\PowerShell\MDTAutomation\Update-MDT3rdPartySoftware.ps1"}Else{$scriptPath = $InvocationInfo.MyCommand.Path}
+If(Test-IsISE){$scriptPath = "\\fileserver\share\Scripts\PowerShell\MDTAutomation\Update-MDT3rdPartySoftware.ps1"}Else{$scriptPath = $InvocationInfo.MyCommand.Path}
 [string]$scriptDirectory = Split-Path $scriptPath -Parent
 [string]$scriptName = Split-Path $scriptPath -Leaf
 [string]$scriptBaseName = [System.IO.Path]::GetFileNameWithoutExtension($scriptName)
